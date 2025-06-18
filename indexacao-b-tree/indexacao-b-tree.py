@@ -1,7 +1,7 @@
 # Define a estrutura de um nó da B-Tree.
 class BTreeNode:
     def __init__(self, leaf=False):
-        self.leaf = leaf  # Flag: True se o nó é uma folha (não tem filhos).
+        self.leaf = leaf  # Flag: True se o nó é uma folha (não têm filhos).
         self.keys = []    # Lista de chaves (valores) ordenada no nó.
         self.child = []   # Lista de ponteiros para os nós filhos.
 
@@ -32,7 +32,7 @@ class BTree:
         # Desce recursivamente para o filho apropriado.
         return self.search(k, node.child[i])
 
-    # Método público para inserir uma chave 'k'.
+    # inserir uma chave 'k'.
     def insert(self, k):
         root = self.root
         # Se a raiz está cheia, a árvore cresce em altura.
@@ -95,7 +95,7 @@ class BTree:
             new_child.child = full_child.child[t:(2 * t)]
             full_child.child = full_child.child[0:t]
 
-    # Método público para remover uma chave 'k'.
+    # remover uma chave 'k'.
     def delete(self, k):
         self._delete_internal(self.root, k)
         # Se a raiz ficou sem chaves, a árvore encolhe em altura.
